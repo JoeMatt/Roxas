@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Roxas",
     platforms: [
-        .iOS(.v12)
+        .iOS(.v10)
     ],
     products: [
         .library(
@@ -27,7 +27,9 @@ let package = Package(
                 .process("RSTCollectionViewCell.xib", localization: nil),
                 .process("RSTPlaceholderView.xib", localization: nil),
             ],
-            publicHeadersPath: ""
+            linkerSettings: [
+                .linkedFramework("UIKit")
+            ]
         )
     ]
 )
