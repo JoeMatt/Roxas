@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3B5227729916F6900D12298 /* RSTNibView.m in Sources */ = {isa = PBXBuildFile; fileRef = D55E1225212F44710095CA4F /* RSTNibView.m */; };
+		B3B5227829916F7A00D12298 /* RSTOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2DF14A1C96B56000F9FDD8 /* RSTOperation.m */; };
 		BF0FB2121F0EA90E007460E0 /* RSTCellContentPrefetchingDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0FB2111F0EA90E007460E0 /* RSTCellContentPrefetchingDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF0FB4451C017DF600D26616 /* RSTPlaceholderView.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0FB4431C017DF600D26616 /* RSTPlaceholderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF0FB4461C017DF600D26616 /* RSTPlaceholderView.h in Headers */ = {isa = PBXBuildFile; fileRef = BF0FB4431C017DF600D26616 /* RSTPlaceholderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF0FB4471C017DF600D26616 /* RSTPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0FB4441C017DF600D26616 /* RSTPlaceholderView.m */; };
 		BF0FB4481C017DF600D26616 /* RSTPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0FB4441C017DF600D26616 /* RSTPlaceholderView.m */; };
 		BF0FB44A1C017F1300D26616 /* RSTPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0FB4491C017F1300D26616 /* RSTPlaceholderView.xib */; };
-		BF0FB44B1C017F1300D26616 /* RSTPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0FB4491C017F1300D26616 /* RSTPlaceholderView.xib */; };
 		BF18B6131E2967D400F70067 /* NSString+Localization.h in Headers */ = {isa = PBXBuildFile; fileRef = BF18B6111E2967D400F70067 /* NSString+Localization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF18B6141E2967D400F70067 /* NSString+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = BF18B6121E2967D400F70067 /* NSString+Localization.m */; };
 		BF18B6151E2967D800F70067 /* NSString+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = BF18B6121E2967D400F70067 /* NSString+Localization.m */; };
@@ -148,7 +149,7 @@
 		BF0FB2111F0EA90E007460E0 /* RSTCellContentPrefetchingDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSTCellContentPrefetchingDataSource.h; sourceTree = "<group>"; };
 		BF0FB4431C017DF600D26616 /* RSTPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTPlaceholderView.h; sourceTree = "<group>"; };
 		BF0FB4441C017DF600D26616 /* RSTPlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTPlaceholderView.m; sourceTree = "<group>"; };
-		BF0FB4491C017F1300D26616 /* RSTPlaceholderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSTPlaceholderView.xib; sourceTree = "<group>"; };
+		BF0FB4491C017F1300D26616 /* RSTPlaceholderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RSTPlaceholderView.xib; path = Resources/RSTPlaceholderView.xib; sourceTree = "<group>"; };
 		BF18B6111E2967D400F70067 /* NSString+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Localization.h"; sourceTree = "<group>"; };
 		BF18B6121E2967D400F70067 /* NSString+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Localization.m"; sourceTree = "<group>"; };
 		BF18B6161E2970B800F70067 /* NSStringLocalizationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringLocalizationTests.m; sourceTree = "<group>"; };
@@ -186,9 +187,8 @@
 		BF6C2E2C1E52521400EABBC9 /* RSTArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTArrayDataSource.m; sourceTree = "<group>"; };
 		BF71CF8C1FE912D1001F1613 /* RSTCompositeDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSTCompositeDataSource.h; sourceTree = "<group>"; };
 		BF71CF8D1FE912D1001F1613 /* RSTCompositeDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSTCompositeDataSource.m; sourceTree = "<group>"; };
-		BF749F2220A10E5D00915B16 /* RSTCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RSTCollectionViewCell.xib; sourceTree = "<group>"; };
+		BF749F2220A10E5D00915B16 /* RSTCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RSTCollectionViewCell.xib; path = Resources/RSTCollectionViewCell.xib; sourceTree = "<group>"; };
 		BF7A4FDE1A33B89C007697D1 /* RSTDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSTDefines.h; sourceTree = "<group>"; };
-		BF7A4FE01A33BA66007697D1 /* Roxas-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Roxas-Prefix.pch"; path = "Roxas/Roxas-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		BF7A759B2166B72900797D91 /* NSConstraintConflict+Conveniences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSConstraintConflict+Conveniences.h"; sourceTree = "<group>"; };
 		BF7A759C2166B72900797D91 /* NSConstraintConflict+Conveniences.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSConstraintConflict+Conveniences.m"; sourceTree = "<group>"; };
 		BF7FF097207312E5003A921A /* RSTActivityIndicating.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSTActivityIndicating.h; sourceTree = "<group>"; };
@@ -209,8 +209,7 @@
 		BFA0E4281A3E956300DA1EC2 /* NSBundle+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Extensions.m"; sourceTree = "<group>"; };
 		BFAD9D091E5283970051F340 /* RSTCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTCellContentView.h; sourceTree = "<group>"; };
 		BFADAFF819AE7BB70050CF31 /* Roxas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Roxas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFADAFFC19AE7BB70050CF31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BFADAFFD19AE7BB70050CF31 /* Roxas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Roxas.h; sourceTree = "<group>"; };
+		BFADAFFD19AE7BB70050CF31 /* Roxas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Roxas.h; path = include/Roxas/Roxas.h; sourceTree = "<group>"; };
 		BFADB00319AE7BB80050CF31 /* RoxasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoxasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFADB00619AE7BB80050CF31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFADB01119AE7C4A0050CF31 /* RSTHelperFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTHelperFile.h; sourceTree = "<group>"; };
@@ -475,14 +474,13 @@
 				BF36F1CE1A1459720057FF07 /* Categories */,
 				BFADAFFB19AE7BB70050CF31 /* Supporting Files */,
 			);
-			path = Roxas;
+			name = Roxas;
+			path = Sources/Roxas;
 			sourceTree = "<group>";
 		};
 		BFADAFFB19AE7BB70050CF31 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF7A4FE01A33BA66007697D1 /* Roxas-Prefix.pch */,
-				BFADAFFC19AE7BB70050CF31 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -495,7 +493,8 @@
 				BF18B61C1E297E0E00F70067 /* Tests */,
 				BFADB00519AE7BB80050CF31 /* Supporting Files */,
 			);
-			path = RoxasTests;
+			name = RoxasTests;
+			path = Tests/RoxasTests;
 			sourceTree = "<group>";
 		};
 		BFADB00519AE7BB80050CF31 /* Supporting Files */ = {
@@ -853,7 +852,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF0FB44B1C017F1300D26616 /* RSTPlaceholderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,8 +897,10 @@
 				BFE35D851DBED4D700F77C10 /* UITableView+CellContent.m in Sources */,
 				BFDF04DB1D51193B00091747 /* RSTCellContentChangeOperation.m in Sources */,
 				BF57C02A1D726016000132D2 /* UIView+AnimatedHide.m in Sources */,
+				B3B5227829916F7A00D12298 /* RSTOperation.m in Sources */,
 				BF86246B1BB742E700C12EEE /* RSTHelperFile.m in Sources */,
 				BF58BC171D51A5C9008FC1A3 /* RSTCellContentChange.m in Sources */,
+				B3B5227729916F6900D12298 /* RSTNibView.m in Sources */,
 				BF86246C1BB742E700C12EEE /* UIImage+Manipulation.m in Sources */,
 				BF86246D1BB742E700C12EEE /* NSUserDefaults+DynamicProperties.m in Sources */,
 				BF86246E1BB742E700C12EEE /* NSFileManager+URLs.m in Sources */,
@@ -988,7 +988,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Roxas/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SDKROOT = appletvos;
@@ -1006,7 +1005,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Roxas/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SDKROOT = appletvos;
@@ -1024,7 +1022,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Roxas/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SDKROOT = appletvos;
@@ -1069,7 +1066,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Roxas/Roxas-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1098,7 +1094,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Roxas/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1156,7 +1151,6 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Roxas/Roxas-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1216,7 +1210,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Roxas/Roxas-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1245,7 +1238,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Roxas/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1266,7 +1258,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Roxas/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
