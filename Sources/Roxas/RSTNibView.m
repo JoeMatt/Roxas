@@ -49,9 +49,9 @@
     
     #if SWIFT_PACKAGE
 #if TARGET_OS_TV
-    NSBundle *bundle = [NSBundle bundleForClass:Roxas_tvOS.class];
+    NSBundle *bundle = Roxas_tvOS.resources;
 #else
-    NSBundle *bundle = [NSBundle bundleForClass:Roxas_iOS.class];
+    NSBundle *bundle = Roxas_iOS.resources;
 #endif
     #else
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
