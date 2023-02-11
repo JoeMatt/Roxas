@@ -6,10 +6,10 @@ let package = Package(
     name: "Roxas",
     defaultLocalization: "us",
     platforms: [
-        .iOS(.v14),
+        .iOS(.v12),
         .macOS(.v12),
-        .tvOS(.v14),
-        .macCatalyst(.v14)
+        .tvOS(.v12),
+        .macCatalyst(.v13)
     ],
     products: [
         .library(
