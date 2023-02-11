@@ -36,7 +36,9 @@ NS_ASSUME_NONNULL_END
 
 @implementation RSTCellContentDataSource
 {
+#if !TARGET_OS_TV
     UITableViewCellSeparatorStyle _previousSeparatorStyle;
+#endif
     UIView *_previousBackgroundView;
     BOOL _previousScrollEnabled;
     
@@ -146,9 +148,10 @@ NS_ASSUME_NONNULL_END
     if ([self.contentView isKindOfClass:[UITableView class]])
     {
         UITableView *tableView = (UITableView *)self.contentView;
-        
+#if !TARGET_OS_TV
         _previousSeparatorStyle = tableView.separatorStyle;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+#endif
     }
     
     _previousScrollEnabled = self.contentView.scrollEnabled;
@@ -171,7 +174,9 @@ NS_ASSUME_NONNULL_END
     if ([self.contentView isKindOfClass:[UITableView class]])
     {
         UITableView *tableView = (UITableView *)self.contentView;
+#if !TARGET_OS_TV
         tableView.separatorStyle = _previousSeparatorStyle;
+#endif
     }
     
     self.contentView.scrollEnabled = _previousScrollEnabled;

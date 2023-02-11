@@ -1,12 +1,15 @@
 // swift-tools-version:5.7
-// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "Roxas",
+    defaultLocalization: "us",
     platforms: [
-        .iOS(.v11)
+        .iOS(.v14),
+        .macOS(.v12),
+        .tvOS(.v14),
+        .macCatalyst(.v14)
     ],
     products: [
         .library(
@@ -22,21 +25,36 @@ let package = Package(
             name: "RoxasDynamic",
             type: .dynamic,
             targets: ["Roxas"]
-        )
+        ),
+//        .library(
+//            name: "Roxas_iOS",
+//            targets: ["Roxas_iOS"]
+//        ),
+//        .library(
+//            name: "Roxas_tvOS",
+//            targets: ["Roxas_tvOS"]
+//        ),
     ],
     dependencies: [],
     targets: [
         .target(
             name: "Roxas",
-            dependencies: [],
-            resources: [
-                .process("Resources/")
+            dependencies: [
+                .target(name: "Roxas_iOS", condition: .when(platforms: [.iOS, .macCatalyst])),
+                .target(name: "Roxas_tvOS", condition: .when(platforms: [.tvOS]))
             ],
             linkerSettings: [
-                .linkedFramework("UIKit"),
+                .linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS, .macCatalyst])),
+                .linkedFramework("AppKit", .when(platforms: [.macOS])),
                 .linkedFramework("Foundation"),
                 .linkedFramework("CoreData")
             ]
+        ),
+        .target(
+            name: "Roxas_iOS"
+        ),
+        .target(
+            name: "Roxas_tvOS"
         ),
         .testTarget(
             name: "RoxasTests",

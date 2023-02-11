@@ -10,6 +10,12 @@
 
 #import "NSLayoutConstraint+Edges.h"
 
+#if TARGET_OS_TV
+@import Roxas_tvOS;
+#else
+@import Roxas_iOS;
+#endif
+
 @implementation RSTNibView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -42,7 +48,11 @@
     name = [components lastObject];
     
     #if SWIFT_PACKAGE
-    NSBundle *bundle = SWIFTPM_MODULE_BUNDLE;
+#if TARGET_OS_TV
+    NSBundle *bundle = [NSBundle bundleForClass:Roxas_tvOS.class];
+#else
+    NSBundle *bundle = [NSBundle bundleForClass:Roxas_iOS.class];
+#endif
     #else
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
     #endif
