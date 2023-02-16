@@ -14,14 +14,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
-    - name: Swift Setup
-      uses: YOCKOW/Action-setup-swift@v1.1.17
-      with:
-        swift-version: '5.1.0' # This value is passed to swiftenv without modification.
+    # - name: Swift Setup
+    #   uses: YOCKOW/Action-setup-swift@v1.1.17
+    #   with:
+    #     swift-version: '5.1.0' # This value is passed to swiftenv without modification.
     - run: swift --version
     - name: Resolve
       run: swift package resolve
     - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test --parallel -v
+      run: ./spm.sh
+    #   run: swift build -v \
+    #     -Xswiftc -enable-testing \
+    #     -Xswiftc "-sdk" \
+    #     -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" \
+    #     -Xswiftc "-target" \
+    #     -Xswiftc "arm64-apple-ios13.0-simulator"
+
+    # - name: Run tests
+    #   run: swift test --parallel -v
