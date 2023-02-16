@@ -7,7 +7,9 @@
 //
 
 @import Roxas;
+@import RoxasUIKit;
 //#import <Roxas/RSTHelperFile.h>
+@import CoreGraphics;
 
 @import XCTest;
 

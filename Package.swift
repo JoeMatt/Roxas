@@ -26,39 +26,70 @@ let package = Package(
             type: .dynamic,
             targets: ["Roxas"]
         ),
-//        .library(
-//            name: "Roxas_iOS",
-//            targets: ["Roxas_iOS"]
-//        ),
-//        .library(
-//            name: "Roxas_tvOS",
-//            targets: ["Roxas_tvOS"]
-//        ),
+		.library(
+			name: "RoxasUI",
+			targets: ["RoxasUIKit"]
+		),
+		.library(
+			name: "RoxasUIStatic",
+			type: .static,
+			targets: ["RoxasUIKit"]
+		),
+		.library(
+			name: "RoxasUIDynamic",
+			type: .dynamic,
+			targets: ["RoxasUIKit"]
+		),
     ],
     dependencies: [],
     targets: [
         .target(
             name: "Roxas",
             dependencies: [
-                .target(name: "Roxas_iOS", condition: .when(platforms: [.iOS, .macCatalyst])),
-                .target(name: "Roxas_tvOS", condition: .when(platforms: [.tvOS]))
             ],
             linkerSettings: [
-                .linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS, .macCatalyst])),
-                .linkedFramework("AppKit", .when(platforms: [.macOS])),
                 .linkedFramework("Foundation"),
                 .linkedFramework("CoreData")
             ]
         ),
+		.target(
+			name: "RoxasUIKit",
+			dependencies: [
+				"Roxas",
+				.target(name: "Roxas_iOS", condition: .when(platforms: [.iOS, .macCatalyst])),
+				.target(name: "Roxas_tvOS", condition: .when(platforms: [.tvOS]))
+			],
+			linkerSettings: [
+				.linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS, .macCatalyst])),
+				.linkedFramework("AppKit", .when(platforms: [.macOS])),
+				.linkedFramework("Cocoa", .when(platforms: [.macOS])),
+				.linkedFramework("Foundation"),
+				.linkedFramework("CoreData")
+			]
+		),
         .target(
-            name: "Roxas_iOS"
+            name: "Roxas_iOS",
+			linkerSettings: [
+				.linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS, .macCatalyst])),
+				.linkedFramework("Foundation"),
+				.linkedFramework("CoreData")
+			]
         ),
         .target(
-            name: "Roxas_tvOS"
+            name: "Roxas_tvOS",
+			linkerSettings: [
+				.linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS, .macCatalyst])),
+				.linkedFramework("Foundation"),
+				.linkedFramework("CoreData")
+			]
         ),
         .testTarget(
             name: "RoxasTests",
-            dependencies: ["Roxas"]
+            dependencies: [
+				"Roxas",
+				"RoxasUIKit"
+			]
         )
-    ]
+    ],
+	swiftLanguageVersions: [.v4_2, .v5]
 )
