@@ -9,7 +9,7 @@
 #import "RSTLoadOperation.h"
 #import "RSTOperation_Subclasses.h"
 
-@import UIKit;
+@import Foundation;
 
 NS_ASSUME_NONNULL_BEGIN
 

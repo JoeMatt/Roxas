@@ -8,7 +8,14 @@
 
 #import "NSString+Localization.h"
 
+@import Foundation;
+#if TARGET_OS_OSX
+@import AppKit;
+#else
 @import UIKit;
+#endif
+
+@import Foundation;
 
 NSString *RSTSystemLocalizedStringNotFound = @"com.rileytestut.RSTSystemLocalizedStringNotFound";
 
@@ -16,8 +23,12 @@ NSString *RSTSystemLocalizedStringNotFound = @"com.rileytestut.RSTSystemLocalize
 
 NSString *RSTSystemLocalizedString(NSString *string)
 {
-    NSBundle *bundle = [NSBundle bundleForClass:UIApplication.class];
-    
+#if TARGET_OS_OSX
+	NSBundle *bundle = [NSBundle bundleForClass:NSApplication.class];
+#else
+	NSBundle *bundle = [NSBundle bundleForClass:UIApplication.class];
+#endif
+
     NSString *localizedString = [bundle localizedStringForKey:string value:RSTSystemLocalizedStringNotFound table:nil];
     
     if ([localizedString isEqualToString:RSTSystemLocalizedStringNotFound])
