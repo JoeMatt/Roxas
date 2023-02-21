@@ -17,7 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (copy, nonatomic) NSArray<ContentType> *items;
 
+#if TARGET_OS_TV
+- (instancetype)initWithItems:(NSArray<ContentType> *)items searchResultsController:(nonnull UIViewController*)searchResultsController NS_DESIGNATED_INITIALIZER;
+#else
 - (instancetype)initWithItems:(NSArray<ContentType> *)items NS_DESIGNATED_INITIALIZER;
+#endif
 
 - (void)setItems:(NSArray<ContentType> *)items withChanges:(nullable NSArray<RSTCellContentChange *> *)changes;
 

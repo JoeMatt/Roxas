@@ -25,16 +25,27 @@ NS_ASSUME_NONNULL_END
 
 @implementation RSTArrayDataSource
 
+#if TARGET_OS_TV
+- (instancetype)initWithItems:(NSArray *)items
+	  searchResultsController:(nonnull UIViewController*)searchResultsController {
+	self = [super initWithSearchResultsController:searchResultsController];
+	if (self) {
+		_items = [items copy];
+	}
+	return  self;
+}
+#else
 - (instancetype)initWithItems:(NSArray *)items
 {
-    self = [super init];
-    if (self)
-    {
-        _items = [items copy];
-    }
-    
-    return self;
+	self = [super init];
+	if (self)
+	{
+		_items = [items copy];
+	}
+
+	return self;
 }
+#endif
 
 #pragma mark - RSTCellContentDataSource -
 

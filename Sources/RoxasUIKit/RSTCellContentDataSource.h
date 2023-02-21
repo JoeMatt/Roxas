@@ -25,6 +25,12 @@ RST_EXTERN NSString *RSTCellContentGenericCellIdentifier;
 
 @interface RSTCellContentDataSource<ContentType, CellType: UIView<RSTCellContentCell> *, ViewType: UIScrollView<RSTCellContentView> *, DataSourceType> : NSObject
 
+#if TARGET_OS_TV
+- (instancetype)initWithSearchResultsController:(nonnull UIViewController *)searchResultsController NS_DESIGNATED_INITIALIZER;
+
+@property (nullable, nonatomic, weak) UIViewController* searchResultsController;
+#endif
+
 // The view containing the content cells.
 @property (nullable, weak, nonatomic, readonly) ViewType contentView;
 
@@ -57,6 +63,8 @@ RST_EXTERN NSString *RSTCellContentGenericCellIdentifier;
 
 // Total number of items to be displayed in contentView.
 @property (nonatomic, readonly) NSInteger itemCount;
+
+
 
 // Returns content item at indexPath. Performs no bounds-checking.
 - (ContentType)itemAtIndexPath:(NSIndexPath *)indexPath;

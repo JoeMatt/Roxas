@@ -19,8 +19,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSFetchedResultsController<ContentType> *fetchedResultsController;
 
+#if TARGET_OS_TV
+- (instancetype)initWithFetchRequest:(NSFetchRequest *)fetchRequest managedObjectContext:(NSManagedObjectContext *)managedObjectContext searchResultsController:(nonnull UIViewController*)searchResultsController;
+#else
 - (instancetype)initWithFetchRequest:(NSFetchRequest<ContentType> *)fetchRequest managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+#endif
+#if TARGET_OS_TV
+- (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController searchResultsController:(nonnull UIViewController*) searchResultsController NS_DESIGNATED_INITIALIZER;
+#else
 - (instancetype)initWithFetchedResultsController:(NSFetchedResultsController<ContentType> *)fetchedResultsController NS_DESIGNATED_INITIALIZER;
+#endif
 
 - (instancetype)init NS_UNAVAILABLE;
 

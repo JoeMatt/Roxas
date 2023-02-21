@@ -50,40 +50,59 @@ NS_ASSUME_NONNULL_END
 @synthesize prefetchHandler = _prefetchHandler;
 @synthesize prefetchCompletionHandler = _prefetchCompletionHandler;
 
+#if TARGET_OS_TV
+@synthesize searchResultsController;
+
+- (instancetype)initWithSearchResultsController:(nonnull UIViewController *)searchResultsController {
+	self = [super init];
+	if (self)
+	{
+		[self commonInit];
+		self.searchResultsController = searchResultsController;
+	}
+	return self;
+}
+
+#else
 - (instancetype)init
 {
-    self = [super init];
-    if (self)
-    {
-        _cellIdentifierHandler = [^NSString *(NSIndexPath *indexPath) {
-            return RSTCellContentGenericCellIdentifier;
-        } copy];
-        
-        _cellConfigurationHandler = [^(id cell, id item, NSIndexPath *indexPath) {
-            if ([cell isKindOfClass:[UITableViewCell class]])
-            {
-                [(UITableViewCell *)cell textLabel].text = [item description];
-            }
-        } copy];
-        
-        __weak RSTCellContentDataSource *weakSelf = self;
-        _defaultSearchHandler = [^NSOperation *(RSTSearchValue *searchValue, RSTSearchValue *previousSearchValue) {
-            weakSelf.predicate = searchValue.predicate;
-            return nil;
-        } copy];
-        
-        _rowAnimation = UITableViewRowAnimationAutomatic;
-        
-        _prefetchItemCache = [[NSCache alloc] init];
-        
-        _prefetchOperationQueue = [[RSTOperationQueue alloc] init];
-        _prefetchOperationQueue.name = @"com.rileytestut.Roxas.RSTCellContentDataSource.prefetchOperationQueue";
-        _prefetchOperationQueue.qualityOfService = NSQualityOfServiceUserInitiated;
-        
-        _prefetchCompletionHandlers = [NSMapTable strongToStrongObjectsMapTable];
-    }
-    
-    return self;
+	self = [super init];
+	if (self)
+	{
+		[self commonInit];
+	}
+
+	return self;
+}
+#endif
+
+- (void)commonInit {
+	_cellIdentifierHandler = [^NSString *(NSIndexPath *indexPath) {
+		return RSTCellContentGenericCellIdentifier;
+	} copy];
+
+	_cellConfigurationHandler = [^(id cell, id item, NSIndexPath *indexPath) {
+		if ([cell isKindOfClass:[UITableViewCell class]])
+		{
+			[(UITableViewCell *)cell textLabel].text = [item description];
+		}
+	} copy];
+
+	__weak RSTCellContentDataSource *weakSelf = self;
+	_defaultSearchHandler = [^NSOperation *(RSTSearchValue *searchValue, RSTSearchValue *previousSearchValue) {
+		weakSelf.predicate = searchValue.predicate;
+		return nil;
+	} copy];
+
+	_rowAnimation = UITableViewRowAnimationAutomatic;
+
+	_prefetchItemCache = [[NSCache alloc] init];
+
+	_prefetchOperationQueue = [[RSTOperationQueue alloc] init];
+	_prefetchOperationQueue.name = @"com.rileytestut.Roxas.RSTCellContentDataSource.prefetchOperationQueue";
+	_prefetchOperationQueue.qualityOfService = NSQualityOfServiceUserInitiated;
+
+	_prefetchCompletionHandlers = [NSMapTable strongToStrongObjectsMapTable];
 }
 
 #pragma mark - NSObject -
@@ -561,8 +580,16 @@ NS_ASSUME_NONNULL_END
 {
     if (_searchController == nil)
     {
-        _searchController = [[RSTSearchController alloc] initWithSearchResultsController:nil];
-        
+#if TARGET_OS_TV
+		if (self.searchResultsController == nil) {
+			NSLog(@"error: Nil searchResultsController");
+			NSAssert(false, @"error: Nil searchResultsController");
+		}
+		_searchController = [[RSTSearchController alloc] initWithSearchResultsController:self.searchResultsController];
+#else
+		_searchController = [[RSTSearchController alloc] initWithSearchResultsController:nil];
+#endif
+
         __weak RSTCellContentDataSource *weakSelf = self;
         _searchController.searchHandler = ^NSOperation *(RSTSearchValue *searchValue, RSTSearchValue *previousSearchValue) {
             weakSelf.predicate = searchValue.predicate;

@@ -65,17 +65,30 @@ NS_ASSUME_NONNULL_END
 
 @implementation RSTFetchedResultsDataSource
 
+#if TARGET_OS_TV
+- (instancetype)initWithFetchRequest:(NSFetchRequest *)fetchRequest managedObjectContext:(NSManagedObjectContext *)managedObjectContext searchResultsController:(nonnull UIViewController*)searchResultsController
+#else
 - (instancetype)initWithFetchRequest:(NSFetchRequest *)fetchRequest managedObjectContext:(NSManagedObjectContext *)managedObjectContext
+#endif
 {
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    
-    self = [self initWithFetchedResultsController:fetchedResultsController];
+#if TARGET_OS_TV
+	self = [self initWithFetchedResultsController:fetchedResultsController searchResultsController:searchResultsController];
+#else
+	self = [self initWithFetchedResultsController:fetchedResultsController];
+#endif
     return self;
 }
 
+#if TARGET_OS_TV
+- (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController searchResultsController:(nonnull UIViewController*)searchResultsController
+{
+	self = [super initWithSearchResultsController:searchResultsController];
+#else
 - (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
 {
     self = [super init];
+#endif
     if (self)
     {
         [self setFetchedResultsController:fetchedResultsController];
