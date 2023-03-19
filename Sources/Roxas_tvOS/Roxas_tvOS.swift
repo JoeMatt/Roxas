@@ -1,3 +1,4 @@
+#if os(tvOS)
 import Foundation
 
 @objcMembers
@@ -21,3 +22,4 @@ import Foundation
         return bundle
     }
 }
+#endif

@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "Roxas",
-    defaultLocalization: "us",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v12),
         .macOS(.v12),
@@ -12,31 +12,33 @@ let package = Package(
         .macCatalyst(.v13)
     ],
     products: [
+        // MARK: Roxas
         .library(
             name: "Roxas",
             targets: ["Roxas"]
         ),
         .library(
-            name: "RoxasStatic",
+            name: "Roxas-Static",
             type: .static,
             targets: ["Roxas"]
         ),
         .library(
-            name: "RoxasDynamic",
+            name: "Roxas-Dynamic",
             type: .dynamic,
             targets: ["Roxas"]
         ),
+        // MARK: RoxasUI
 		.library(
 			name: "RoxasUI",
 			targets: ["RoxasUIKit"]
 		),
 		.library(
-			name: "RoxasUIStatic",
+			name: "RoxasUI-Static",
 			type: .static,
 			targets: ["RoxasUIKit"]
 		),
 		.library(
-			name: "RoxasUIDynamic",
+			name: "RoxasUI-Dynamic",
 			type: .dynamic,
 			targets: ["RoxasUIKit"]
 		),
@@ -68,20 +70,10 @@ let package = Package(
 			]
 		),
         .target(
-            name: "Roxas_iOS",
-			linkerSettings: [
-				.linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS, .macCatalyst])),
-				.linkedFramework("Foundation"),
-				.linkedFramework("CoreData")
-			]
+            name: "Roxas_iOS"
         ),
         .target(
-            name: "Roxas_tvOS",
-			linkerSettings: [
-				.linkedFramework("UIKit", .when(platforms: [.iOS, .tvOS, .macCatalyst])),
-				.linkedFramework("Foundation"),
-				.linkedFramework("CoreData")
-			]
+            name: "Roxas_tvOS"
         ),
         .testTarget(
             name: "RoxasTests",
